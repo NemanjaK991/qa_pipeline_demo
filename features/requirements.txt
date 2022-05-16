@@ -1,0 +1,6 @@
+allure-behave==2.9.43
+allure-python-commons==2.9.43
+behave==1.2.6
+requests==2.26.0
+selenium==3.141.0
+webdriver-manager==3.5.2
