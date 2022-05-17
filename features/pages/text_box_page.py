@@ -33,7 +33,13 @@ class TextBoxPage(BasePage):
         self.input_values(self.permanent_address, permanent_address)
 
     def click_on_submit_btn(self):
-        self.click_on_element(self.submit_btn)
+        WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable(self.submit_btn))
+        el = self.driver.find_element(*self.submit_btn)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);",
+                                   el)
+        self.driver.execute_script("arguments[0].click();", el)
+        # self.click_on_element(self.submit_btn)
 
     def return_current_name(self):
         return self.return_text_from_element(self.current_name)
